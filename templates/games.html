@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+
+{% block title %}Games | Gaming Hub{% endblock %}
+
+{% block content %}
+
+<section class="games-page">
+
+    <div class="container">
+
+        <div class="games-header">
+            <h1>🎮 All Games</h1>
+            <p>Find your next favorite game.</p>
+        </div>
+
+        <!-- SEARCH -->
+        <form method="GET" class="game-filters">
+
+            <input
+                type="text"
+                name="search"
+                value="{{ search }}"
+                placeholder="Search games..."
+                class="form-control"
+            >
+
+            <select name="category" class="form-control">
+
+                <option value="">All Categories</option>
+
+                {% for category in categories %}
+                    <option
+                        value="{{ category }}"
+                        {% if selected_category == category %}selected{% endif %}
+                    >
+                        {{ category }}
+                    </option>
+                {% endfor %}
+
+            </select>
+
+            <button type="submit" class="btn btn-primary">
+                🔍 Search
+            </button>
+
+        </form>
+
+        <!-- GAMES -->
+        <div class="row g-4 mt-4">
+
+            {% for game in games %}
+
+                <div class="col-md-6 col-lg-4">
+
+                    <div class="game-card">
+
+                        {% if game.image %}
+                            <img
+                                src="{{ game.image.url }}"
+                                alt="{{ game.title }}"
+                                class="game-card-image"
+                            >
+                        {% endif %}
+
+                        <h3>{{ game.title }}</h3>
+
+                        <p>
+                            {{ game.description|truncatewords:20 }}
+                        </p>
+
+                        <p class="price">
+                            ${{ game.price }}
+                        </p>
+
+                        <a
+                            href="{% url 'game_detail' game.pk %}"
+                            class="btn btn-primary game-button"
+                        >
+                            View Game
+                        </a>
+
+                    </div>
+
+                </div>
+
+            {% empty %}
+
+                <div class="col-12 text-center">
+                    <p>No games found.</p>
+                </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

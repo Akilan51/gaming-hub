@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block title %}Gaming Hub{% endblock %}
+
+{% block content %}
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="game-controller">
+            🎮
+        </div>
+
+        <h1>Gaming Hub</h1>
+
+        <p>
+            Discover your next favorite game.
+        </p>
+
+        <a href="#games" class="btn btn-primary neon-btn">
+            Explore Games
+        </a>
+
+    </div>
+
+</section>
+
+
+<section class="featured-section" id="games">
+
+    <div class="container">
+
+        <h2>Featured Games</h2>
+
+        <div class="row g-4">
+
+            {% for game in games %}
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="game-card">
+
+                    <h3>{{ game.title }}</h3>
+
+                    <p>
+                        {{ game.description }}
+                    </p>
+
+                    <p class="price">
+                        ${{ game.price }}
+                    </p>
+
+                    <a href="{% url 'game_detail' game.pk %}"class="btn btn-primary game-button">
+                        View Game
+                    </a>
+
+                </div>
+
+            </div>
+
+            {% empty %}
+
+            <div class="col-12 text-center">
+                <p>No games available yet.</p>
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

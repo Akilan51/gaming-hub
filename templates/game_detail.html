@@ -1,0 +1,183 @@
+{% extends "base.html" %}
+
+{% block title %}{{ game.title }} | Gaming Hub{% endblock %}
+
+{% block content %}
+
+<section class="game-detail">
+
+    <div class="container">
+
+        <!-- GAME DETAILS -->
+        <div class="game-image">
+            {% if game.image %}
+            
+            <img src="{{ game.image.url }}"alt="{{ game.title }}"class="game-detail-image">
+            
+            {% else %}
+            <div class="game-placeholder">
+                🎮
+            </div>
+            {% endif %}
+
+        </div>
+
+
+            <div class="game-detail-info">
+
+                <span class="game-badge">
+                    {{ game.category.name }}
+                </span>
+
+                <h1>{{ game.title }}</h1>
+
+                <p class="game-description">
+                    {{ game.description }}
+                </p>
+
+                <div class="game-info">
+
+                    <p>
+                        <strong>Developer:</strong>
+                        {{ game.developer }}
+                    </p>
+
+                    <p>
+                        <strong>Release Date:</strong>
+                        {{ game.release_date }}
+                    </p>
+
+                    <p class="detail-price">
+                        ${{ game.price }}
+                    </p>
+
+                </div>
+
+
+                <a href="{% url 'buy_game' game.id %}" class="btn btn-primary">
+                    🛒 Buy Game
+                </a>
+
+                <a href="{% url 'home' %}" class="btn back-btn">
+                    ← Back to Games
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- REVIEWS -->
+        <section class="reviews-section">
+
+            <h2>⭐ Reviews</h2>
+
+
+            {% for review in game.reviews.all %}
+
+                <div class="review-card">
+
+                    <div class="review-header">
+
+                        <strong>
+                            {{ review.name }}
+                        </strong>
+
+                        <span>
+                            ⭐ {{ review.rating }}/5
+                        </span>
+
+                    </div>
+
+                    <p>
+                        {{ review.comment }}
+                    </p>
+
+                </div>
+
+            {% empty %}
+
+                <p class="no-reviews">
+                    No reviews yet. Be the first!
+                </p>
+
+            {% endfor %}
+
+
+            <!-- WRITE REVIEW -->
+
+            <div class="review-form-card">
+
+                <h3>✍️ Write a Review</h3>
+
+                <form method="POST">
+
+                    {% csrf_token %}
+
+
+                    <div class="form-group">
+
+                        <label for="{{ form.name.id_for_label }}">
+                            Name
+                        </label>
+
+                        {{ form.name }}
+
+                        {% if form.name.errors %}
+                            <small class="text-danger">
+                                {{ form.name.errors }}
+                            </small>
+                        {% endif %}
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="{{ form.rating.id_for_label }}">
+                            Rating
+                        </label>
+
+                        {{ form.rating }}
+
+                        {% if form.rating.errors %}
+                            <small class="text-danger">
+                                {{ form.rating.errors }}
+                            </small>
+                        {% endif %}
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="{{ form.comment.id_for_label }}">
+                            Comment
+                        </label>
+
+                        {{ form.comment }}
+
+                        {% if form.comment.errors %}
+                            <small class="text-danger">
+                                {{ form.comment.errors }}
+                            </small>
+                        {% endif %}
+
+                    </div>
+
+
+                    <button type="submit" class="btn review-btn">
+                        ⭐ Submit Review
+                    </button>
+
+                </form>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</section>
+
+{% endblock %}
