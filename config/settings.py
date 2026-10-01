@@ -35,10 +35,14 @@ ALLOWED_HOSTS = os.getenv(
     "localhost,127.0.0.1"
 ).split(",")
 
+CSRF_TRUSTED_ORIGINS =[
+    "https://gaming-hub-production-516a.up.railway.app"
+]
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
