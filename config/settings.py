@@ -36,7 +36,7 @@ ALLOWED_HOSTS = os.getenv(
 ).split(",")
 
 CSRF_TRUSTED_ORIGINS =[
-    "https://gaming-hub-production-b93f.up.railway.app"
+    "https://gaming-hub-production-2eb4.up.railway.app"
 ]
 
 # SECURITY WARNING: don't run with debug turned on in production!
