@@ -1,3 +1,4 @@
+```html
 {% extends "base.html" %}
 
 {% block title %}Games | Gaming Hub{% endblock %}
@@ -5,27 +6,25 @@
 {% block content %}
 
 <section class="games-page">
-
     <div class="container">
 
+        <!-- PAGE HEADER -->
         <div class="games-header">
             <h1>🎮 All Games</h1>
             <p>Find your next favorite game.</p>
         </div>
 
-        <!-- SEARCH -->
+        <!-- SEARCH AND CATEGORY FILTER -->
         <form method="GET" class="game-filters">
-
             <input
                 type="text"
                 name="search"
-                value="{{ search }}"
+                value="{{ search|default:'' }}"
                 placeholder="Search games..."
                 class="form-control"
             >
 
             <select name="category" class="form-control">
-
                 <option value="">All Categories</option>
 
                 {% for category in categories %}
@@ -36,22 +35,18 @@
                         {{ category }}
                     </option>
                 {% endfor %}
-
             </select>
 
             <button type="submit" class="btn btn-primary">
                 🔍 Search
             </button>
-
         </form>
 
-        <!-- GAMES -->
+        <!-- GAMES LIST -->
         <div class="row g-4 mt-4">
 
             {% for game in games %}
-
                 <div class="col-md-6 col-lg-4">
-
                     <div class="game-card">
 
                         {% if game.image %}
@@ -80,21 +75,17 @@
                         </a>
 
                     </div>
-
                 </div>
 
             {% empty %}
-
                 <div class="col-12 text-center">
                     <p>No games found.</p>
                 </div>
-
             {% endfor %}
 
         </div>
-
     </div>
-
 </section>
 
 {% endblock %}
+```
