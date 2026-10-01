@@ -1,0 +1,1300 @@
+/* =========================================
+   GAMING HUB - NEON 3D GAMING THEME
+   ========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #030712;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+
+/* =========================================
+   NAVBAR
+   ========================================= */
+
+.navbar {
+    background: rgba(3, 7, 18, 0.82) !important;
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid rgba(0, 225, 255, 0.25);
+    box-shadow: 0 0 25px rgba(0, 225, 255, 0.08);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar-brand {
+    color: #ffffff !important;
+    font-size: 1.35rem;
+    letter-spacing: 1px;
+    text-shadow:
+        0 0 8px #00eaff,
+        0 0 20px rgba(0, 234, 255, 0.6);
+    transition: 0.3s;
+}
+
+.navbar-brand:hover {
+    transform: scale(1.05);
+}
+
+.nav-link {
+    color: #dbeafe !important;
+    margin-left: 12px;
+    transition: 0.3s ease;
+    position: relative;
+}
+
+.nav-link::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background: #00eaff;
+    box-shadow: 0 0 10px #00eaff;
+    transition: 0.3s;
+}
+
+.nav-link:hover {
+    color: #00eaff !important;
+    text-shadow: 0 0 10px #00eaff;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+
+/* =========================================
+   HERO SECTION
+   ========================================= */
+
+.hero {
+    min-height: 600px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+
+    background:
+        radial-gradient(circle at 50% 45%,
+        rgba(0, 234, 255, 0.18),
+        transparent 25%),
+
+        radial-gradient(circle at 20% 80%,
+        rgba(111, 0, 255, 0.15),
+        transparent 30%),
+
+        radial-gradient(circle at 80% 20%,
+        rgba(255, 0, 153, 0.12),
+        transparent 30%),
+
+        #030712;
+}
+
+
+/* animated grid */
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        linear-gradient(rgba(0, 234, 255, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 234, 255, 0.08) 1px, transparent 1px);
+
+    background-size: 50px 50px;
+
+    transform: perspective(500px) rotateX(60deg) scale(1.5);
+    transform-origin: bottom;
+
+    opacity: 0.35;
+
+    animation: gridMove 8s linear infinite;
+}
+
+@keyframes gridMove {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 0 50px;
+    }
+}
+
+
+/* glowing circles */
+
+.hero::after {
+    content: "";
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(0, 234, 255, 0.15);
+
+    box-shadow:
+        0 0 60px rgba(0, 234, 255, 0.08),
+        inset 0 0 60px rgba(0, 234, 255, 0.08);
+
+    animation: pulseCircle 5s ease-in-out infinite;
+}
+
+@keyframes pulseCircle {
+
+    0%,
+    100% {
+        transform: scale(0.9);
+        opacity: 0.4;
+    }
+
+    50% {
+        transform: scale(1.15);
+        opacity: 0.8;
+    }
+}
+
+
+/* =========================================
+   HERO CONTENT
+   ========================================= */
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    padding: 40px 20px;
+
+    animation: heroAppear 1.2s ease;
+}
+
+@keyframes heroAppear {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* title */
+
+.hero h1 {
+    font-size: clamp(3rem, 8vw, 7rem);
+    font-weight: 900;
+    letter-spacing: -3px;
+
+    color: white;
+
+    text-shadow:
+        0 0 5px #ffffff,
+        0 0 15px #00eaff,
+        0 0 35px #00eaff,
+        0 0 70px rgba(0, 234, 255, 0.7);
+
+    animation: neonPulse 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes neonPulse {
+    from {
+        text-shadow:
+            0 0 5px #ffffff,
+            0 0 15px #00eaff,
+            0 0 30px #00eaff;
+    }
+
+    to {
+        text-shadow:
+            0 0 5px #ffffff,
+            0 0 20px #00eaff,
+            0 0 45px #00eaff,
+            0 0 80px #0066ff;
+    }
+}
+
+
+.hero p {
+    color: #cbd5e1;
+    font-size: 1.2rem;
+    margin: 20px 0 30px;
+}
+
+
+/* =========================================
+   3D CONTROLLER
+   ========================================= */
+
+.game-controller {
+    display: inline-block;
+    font-size: 5rem;
+
+    filter:
+        drop-shadow(0 0 10px #00eaff)
+        drop-shadow(0 0 25px rgba(0, 234, 255, 0.8));
+
+    animation: controllerFloat 3s ease-in-out infinite;
+}
+
+@keyframes controllerFloat {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(-5deg);
+    }
+
+    50% {
+        transform: translateY(-25px) rotate(5deg);
+    }
+}
+
+
+/* =========================================
+   NEON BUTTON
+   ========================================= */
+
+.neon-btn,
+.btn-primary {
+    position: relative;
+
+    padding: 14px 30px;
+
+    border: 1px solid #00eaff !important;
+    border-radius: 8px;
+
+    background: linear-gradient(
+        135deg,
+        #0066ff,
+        #7c00ff
+    ) !important;
+
+    color: white !important;
+
+    font-weight: 700;
+    letter-spacing: 0.5px;
+
+    box-shadow:
+        0 0 10px rgba(0, 234, 255, 0.5),
+        0 0 30px rgba(0, 102, 255, 0.25);
+
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.neon-btn:hover,
+.btn-primary:hover {
+    transform: translateY(-5px) scale(1.04);
+
+    box-shadow:
+        0 0 15px #00eaff,
+        0 0 35px #0066ff,
+        0 0 60px rgba(124, 0, 255, 0.5);
+}
+
+
+/* button light sweep */
+
+.neon-btn::before,
+.btn-primary::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: -120%;
+
+    width: 80%;
+    height: 100%;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.4),
+        transparent
+    );
+
+    transform: skewX(-25deg);
+
+    transition: 0.6s;
+}
+
+.neon-btn:hover::before,
+.btn-primary:hover::before {
+    left: 140%;
+}
+
+
+/* =========================================
+   FEATURED GAMES
+   ========================================= */
+
+.featured-section {
+    position: relative;
+    padding: 90px 0;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(0, 234, 255, 0.08),
+            transparent 40%
+        ),
+        #030712;
+}
+
+.featured-section h2 {
+    font-size: 3rem;
+    font-weight: 800;
+
+    text-align: center;
+
+    margin-bottom: 60px;
+
+    text-shadow:
+        0 0 10px #00eaff,
+        0 0 25px rgba(0, 234, 255, 0.5);
+}
+
+
+/* =========================================
+   GAME CARDS
+   ========================================= */
+
+.game-card {
+    position: relative;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(15, 23, 42, 0.95),
+            rgba(2, 6, 23, 0.95)
+        );
+
+    border: 1px solid rgba(0, 234, 255, 0.2);
+
+    border-radius: 18px;
+
+    padding: 25px;
+
+    min-height: 250px;
+
+    overflow: hidden;
+
+    transform-style: preserve-3d;
+
+    transition:
+        transform 0.45s ease,
+        box-shadow 0.45s ease,
+        border-color 0.45s ease;
+
+    animation: cardAppear 0.8s ease backwards;
+}
+
+
+/* stagger animation */
+
+.game-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.game-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.game-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.game-card:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+@keyframes cardAppear {
+    from {
+        opacity: 0;
+        transform: translateY(50px) rotateX(10deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) rotateX(0);
+    }
+}
+
+
+/* card glow */
+
+.game-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    background: #00eaff;
+
+    border-radius: 50%;
+
+    filter: blur(90px);
+
+    opacity: 0.08;
+
+    top: -80px;
+    right: -80px;
+
+    transition: 0.5s;
+}
+
+.game-card:hover::before {
+    opacity: 0.25;
+}
+
+
+/* card border animation */
+
+.game-card::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    border-radius: 18px;
+
+    padding: 1px;
+
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(0, 234, 255, 0.7),
+        transparent
+    );
+
+    mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+
+    mask-composite: exclude;
+
+    opacity: 0;
+
+    transition: 0.4s;
+}
+
+.game-card:hover::after {
+    opacity: 1;
+}
+
+
+/* hover */
+
+.game-card:hover {
+    transform:
+        translateY(-15px)
+        rotateX(5deg)
+        rotateY(-5deg)
+        scale(1.02);
+
+    border-color: #00eaff;
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.5),
+        0 0 20px rgba(0, 234, 255, 0.2),
+        0 0 50px rgba(0, 102, 255, 0.12);
+}
+
+
+/* card title */
+
+.game-card h3,
+.game-card h4 {
+    color: white;
+
+    font-weight: 800;
+
+    margin-bottom: 12px;
+
+    text-shadow:
+        0 0 8px rgba(0, 234, 255, 0.5);
+}
+
+.game-card p {
+    color: #94a3b8;
+    line-height: 1.7;
+}
+
+.game-card .price {
+    color: #00eaff;
+
+    font-size: 1.2rem;
+
+    font-weight: 800;
+
+    text-shadow:
+        0 0 10px rgba(0, 234, 255, 0.5);
+}
+
+
+/* =========================================
+   FLOATING PARTICLES
+   ========================================= */
+
+.particle {
+    position: absolute;
+
+    width: 4px;
+    height: 4px;
+
+    background: #00eaff;
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 10px #00eaff,
+        0 0 20px #00eaff;
+
+    animation: particleFloat 8s linear infinite;
+}
+
+@keyframes particleFloat {
+
+    0% {
+        transform:
+            translateY(100vh)
+            translateX(0);
+
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 1;
+    }
+
+    100% {
+        transform:
+            translateY(-100px)
+            translateX(100px);
+
+        opacity: 0;
+    }
+}
+
+
+/* =========================================
+   FOOTER
+   ========================================= */
+
+footer {
+    background: #020617 !important;
+
+    border-top: 1px solid rgba(0, 234, 255, 0.2);
+
+    box-shadow:
+        0 -10px 40px rgba(0, 234, 255, 0.05);
+}
+
+footer p {
+    color: #64748b;
+}
+
+
+/* =========================================
+   SCROLLBAR
+   ========================================= */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #020617;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+        #00eaff,
+        #7c00ff
+    );
+
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #00eaff;
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 768px) {
+
+    .hero {
+        min-height: 520px;
+    }
+
+    .hero h1 {
+        font-size: 3.2rem;
+        letter-spacing: -1px;
+    }
+
+    .game-controller {
+        font-size: 3.5rem;
+    }
+
+    .featured-section {
+        padding: 60px 15px;
+    }
+
+    .featured-section h2 {
+        font-size: 2.2rem;
+    }
+
+    .game-card:hover {
+        transform: translateY(-8px) scale(1.01);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================
+   GAME DETAIL PAGE
+========================================= */
+
+.game-detail {
+    min-height: 100vh;
+    padding: 80px 0;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(0, 255, 255, 0.12), transparent 30%),
+        radial-gradient(circle at 80% 80%, rgba(140, 0, 255, 0.15), transparent 30%),
+        #020617;
+}
+
+
+/* MAIN GAME CARD */
+
+.game-detail-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+
+    padding: 45px;
+
+    border: 1px solid rgba(0, 255, 255, 0.35);
+    border-radius: 25px;
+
+    background: rgba(10, 20, 40, 0.8);
+
+    box-shadow:
+        0 0 30px rgba(0, 255, 255, 0.15);
+
+    backdrop-filter: blur(15px);
+
+    transition: 0.4s;
+}
+
+.game-detail-card:hover {
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 0 50px rgba(0, 255, 255, 0.3);
+}
+
+
+/* GAME IMAGE */
+
+.game-detail-image {
+    min-height: 400px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    background: #020617;
+}
+
+.game-detail-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: 0.5s;
+}
+
+.game-detail-image:hover img {
+    transform: scale(1.08);
+}
+
+
+/* FALLBACK IMAGE */
+
+.no-image {
+    font-size: 120px;
+
+    text-shadow:
+        0 0 20px cyan,
+        0 0 50px cyan;
+}
+
+
+/* GAME INFO */
+
+.game-detail-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.game-detail-info h1 {
+    font-size: 60px;
+    font-weight: 900;
+
+    color: white;
+
+    margin: 20px 0;
+
+    text-shadow:
+        0 0 10px cyan,
+        0 0 30px rgba(0, 255, 255, 0.6);
+}
+
+
+.game-description {
+    color: #aab4c8;
+
+    font-size: 18px;
+
+    line-height: 1.8;
+}
+
+
+/* CATEGORY */
+
+.game-badge {
+    width: fit-content;
+
+    padding: 8px 16px;
+
+    border-radius: 50px;
+
+    background: rgba(0, 255, 255, 0.1);
+
+    border: 1px solid cyan;
+
+    color: cyan;
+
+    box-shadow:
+        0 0 15px rgba(0, 255, 255, 0.3);
+}
+
+
+/* GAME DETAILS */
+
+.game-info {
+    margin-top: 25px;
+
+    color: #d5d9e3;
+}
+
+.game-info p {
+    margin: 10px 0;
+}
+
+
+/* PRICE */
+
+.detail-price {
+    font-size: 32px;
+
+    font-weight: 900;
+
+    color: #00ffff;
+
+    text-shadow:
+        0 0 15px cyan;
+}
+
+
+/* BUY BUTTON */
+
+.buy-btn {
+    width: fit-content;
+
+    margin-top: 20px;
+
+    padding: 14px 30px;
+
+    border-radius: 10px;
+
+    color: white;
+
+    font-weight: bold;
+
+    border: none;
+
+    background: linear-gradient(
+        90deg,
+        #00c6ff,
+        #7c00ff
+    );
+
+    box-shadow:
+        0 0 20px rgba(0, 200, 255, 0.5);
+
+    transition: 0.3s;
+}
+
+.buy-btn:hover {
+    transform: scale(1.08);
+
+    box-shadow:
+        0 0 35px rgba(0, 200, 255, 0.8);
+}
+
+
+/* BACK BUTTON */
+
+.back-btn {
+    width: fit-content;
+
+    margin-top: 15px;
+
+    color: #00ffff;
+
+    border: 1px solid cyan;
+}
+
+.back-btn:hover {
+    color: white;
+
+    background: rgba(0, 255, 255, 0.1);
+}
+
+
+/* =========================================
+   REVIEWS
+========================================= */
+
+.reviews-section {
+    margin-top: 70px;
+}
+
+.reviews-section h2 {
+    color: white;
+
+    font-size: 40px;
+
+    margin-bottom: 30px;
+
+    text-shadow:
+        0 0 15px cyan;
+}
+
+
+.review-card {
+    padding: 25px;
+
+    margin-bottom: 20px;
+
+    border-radius: 15px;
+
+    background: rgba(10, 20, 40, 0.8);
+
+    border: 1px solid rgba(0, 255, 255, 0.2);
+
+    transition: 0.3s;
+}
+
+.review-card:hover {
+    transform: translateX(8px);
+
+    border-color: cyan;
+
+    box-shadow:
+        0 0 20px rgba(0, 255, 255, 0.2);
+}
+
+
+.review-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-bottom: 10px;
+
+    color: white;
+}
+
+.review-header span {
+    color: #ffd700;
+}
+
+.review-card p {
+    color: #aab4c8;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+
+    .game-detail-card {
+        grid-template-columns: 1fr;
+
+        padding: 25px;
+    }
+
+    .game-detail-info h1 {
+        font-size: 40px;
+    }
+
+    .game-detail-image {
+        min-height: 280px;
+    }
+
+}
+
+
+
+
+
+
+/* =================================
+   FIX GAME CARD CLICKING
+================================= */
+
+.game-card {
+    position: relative;
+    z-index: 1;
+}
+
+/* Make decorative layers ignore mouse clicks */
+.game-card::before,
+.game-card::after {
+    pointer-events: none;
+}
+
+/* Make the View Game link clickable */
+.game-card a {
+    position: relative;
+    z-index: 20;
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+/* Button stays above card effects */
+.game-card .btn {
+    position: relative;
+    z-index: 30;
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+.game-button {
+    display: inline-block;
+    position: relative;
+    z-index: 100;
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+
+
+
+
+
+
+
+/* =================================
+   REVIEW FORM
+================================= */
+
+.review-form-card {
+    margin-top: 40px;
+    padding: 35px;
+
+    border-radius: 20px;
+
+    background: rgba(8, 15, 35, 0.9);
+
+    border: 1px solid rgba(0, 255, 255, 0.3);
+
+    box-shadow:
+        0 0 30px rgba(0, 255, 255, 0.12);
+}
+
+.review-form-card h3 {
+    color: white;
+    margin-bottom: 25px;
+
+    text-shadow:
+        0 0 12px cyan;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+
+    color: #00ffff;
+
+    margin-bottom: 8px;
+
+    font-weight: bold;
+}
+
+.form-control {
+    background: #020617 !important;
+
+    border: 1px solid #164e63 !important;
+
+    color: white !important;
+
+    border-radius: 10px;
+
+    padding: 12px;
+}
+
+.form-control:focus {
+    border-color: #00ffff !important;
+
+    box-shadow:
+        0 0 15px rgba(0, 255, 255, 0.3) !important;
+}
+
+.review-btn {
+    margin-top: 10px;
+
+    padding: 12px 25px;
+
+    color: white;
+
+    font-weight: bold;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: linear-gradient(
+        90deg,
+        #00c6ff,
+        #7c00ff
+    );
+
+    box-shadow:
+        0 0 20px rgba(0, 200, 255, 0.4);
+
+    transition: 0.3s;
+}
+
+.review-btn:hover {
+    transform: translateY(-3px) scale(1.03);
+
+    box-shadow:
+        0 0 30px rgba(0, 200, 255, 0.7);
+}
+
+
+
+
+
+
+
+
+
+
+.games-page {
+    min-height: 100vh;
+    padding: 80px 0;
+    background: #020617;
+}
+
+.games-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.games-header h1 {
+    color: white;
+    font-size: 50px;
+    font-weight: 900;
+    text-shadow: 0 0 15px cyan;
+}
+
+.games-header p {
+    color: #aab4c8;
+}
+
+.game-filters {
+    display: grid;
+    grid-template-columns: 1fr 220px auto;
+    gap: 15px;
+    padding: 25px;
+    border-radius: 20px;
+    background: rgba(10, 20, 40, 0.8);
+    border: 1px solid rgba(0, 255, 255, 0.25);
+}
+
+.game-card-image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+    .game-filters {
+        grid-template-columns: 1fr;
+    }
+
+    .games-header h1 {
+        font-size: 38px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.auth-page {
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+    background: #020617;
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 500px;
+    padding: 40px;
+    border-radius: 20px;
+    background: rgba(10, 20, 40, 0.9);
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    box-shadow: 0 0 35px rgba(0, 255, 255, 0.15);
+}
+
+.auth-card h1 {
+    color: white;
+    text-align: center;
+    text-shadow: 0 0 15px cyan;
+}
+
+.auth-card > p {
+    color: #aab4c8;
+    text-align: center;
+}
+
+.auth-card label {
+    color: #00ffff;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.auth-card input {
+    margin-bottom: 15px;
+}
+
+.auth-btn {
+    width: 100%;
+    margin-top: 10px;
+    padding: 12px;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #00c6ff, #7c00ff);
+}
+
+.auth-link {
+    margin-top: 25px;
+}
+
+.auth-link a {
+    color: #00ffff;
+    text-decoration: none;
+}
+
+
+
+
+
+
+
+
+.game-detail-image {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    border-radius: 18px;
+    display: block;
+}
+
+.game-placeholder {
+    width: 100%;
+    height: 420px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 90px;
+}
